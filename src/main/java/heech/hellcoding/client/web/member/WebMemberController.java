@@ -46,4 +46,12 @@ public class WebMemberController {
     public JsonResult saveMember(@Validated @RequestBody MemberRequest request, BindingResult bindingResult) {
         return JsonResult.OK();
     }
+
+    /**
+     * 회원 수정
+     */
+    @PutMapping(value = "/{id}")
+    public JsonResult updateMember(@Validated @RequestBody MemberRequest request, BindingResult bindingResult) {
+        return JsonResult.OK();
+    }
 }
