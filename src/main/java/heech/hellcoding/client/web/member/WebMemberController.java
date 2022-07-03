@@ -3,12 +3,12 @@ package heech.hellcoding.client.web.member;
 import heech.hellcoding.client.core.common.json.JsonResult;
 import heech.hellcoding.client.core.member.dto.MemberSearchCondition;
 import heech.hellcoding.client.core.member.service.MemberService;
+import heech.hellcoding.client.web.member.request.MemberRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -42,4 +42,8 @@ public class WebMemberController {
     /**
      * 회원 저장
      */
+    @PostMapping
+    public JsonResult saveMember(@Validated @RequestBody MemberRequest request, BindingResult bindingResult) {
+        return JsonResult.OK();
+    }
 }
